@@ -1,0 +1,512 @@
+
+/* =========================================
+   INTEGRITY HUB - APPLICATION LAYOUT
+   Dark forest / charcoal / sage / gold
+========================================= */
+
+:root {
+  --layout-bg: #111712;
+  --sidebar-bg: #151e18;
+  --topbar-bg: #171f19;
+  --panel-bg: #1a241d;
+  --panel-hover: #263329;
+  --layout-border: #303d32;
+  --layout-text: #eeeade;
+  --layout-muted: #98a493;
+  --layout-green: #a8bb91;
+  --layout-gold: #d4aa63;
+  --sidebar-width: 258px;
+}
+
+/* Main application frame */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--layout-bg);
+  color: var(--layout-text);
+  overflow-x: hidden;
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background: var(--layout-bg);
+}
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  width: var(--sidebar-width);
+  height: 100vh;
+  padding: 25px 17px 17px;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--layout-border);
+  color: var(--layout-text);
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 0 8px;
+  margin-bottom: 43px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 45px;
+  height: 45px;
+  border-radius: 13px;
+  background: #9aaa83;
+  color: #19231a;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.brand-copy strong {
+  font-family: "Manrope", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+  color: #f1f0e7;
+}
+
+.brand-copy strong span {
+  color: #a8bb91;
+}
+
+.brand-copy small {
+  color: #a3ad9a;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.sidebar-close {
+  display: none;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: var(--layout-muted);
+  cursor: pointer;
+}
+
+.sidebar-section-label {
+  padding: 0 12px;
+  margin-bottom: 14px;
+  color: #82917d;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  min-height: 47px;
+  padding: 0 13px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #b2bcae;
+  text-align: left;
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  transition: background 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.sidebar-link > svg {
+  flex-shrink: 0;
+  color: #9ba895;
+}
+
+.sidebar-link span {
+  flex: 1;
+}
+
+.sidebar-link:hover {
+  background: #202c22;
+  color: #f0f0e6;
+}
+
+.sidebar-link:hover > svg {
+  color: var(--layout-green);
+}
+
+.sidebar-link.is-active {
+  background: #2b392c;
+  border-color: #394b39;
+  color: #f4f1e8;
+  font-weight: 700;
+}
+
+.sidebar-link.is-active > svg {
+  color: #b2c79a;
+}
+
+.sidebar-link .active-indicator {
+  color: #a9bb91;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 25px;
+}
+
+.sidebar-system {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 59px;
+  padding: 11px 12px;
+  background: #202b22;
+  border: 1px solid #3a4839;
+  border-radius: 11px;
+}
+
+.online-dot {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #a7c18c;
+  box-shadow: 0 0 10px rgba(167, 193, 140, 0.35);
+}
+
+.sidebar-system div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-system strong {
+  color: #e9eee1;
+  font-size: 10px;
+}
+
+.sidebar-system small {
+  color: #9aa792;
+  font-size: 9px;
+}
+
+.sidebar-bottom > p {
+  margin: 18px 0 0;
+  color: #778474;
+  font-size: 9px;
+  text-align: center;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.app-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  margin-left: var(--sidebar-width);
+  background: var(--layout-bg);
+}
+
+.page-content {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  background: var(--layout-bg);
+  color: var(--layout-text);
+}
+
+/* =========================================
+   TOPBAR
+========================================= */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 81px;
+  padding: 0 30px;
+  background: var(--topbar-bg);
+  border-bottom: 1px solid var(--layout-border);
+  color: var(--layout-text);
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+
+.topbar-heading {
+  min-width: 0;
+}
+
+.topbar-eyebrow {
+  margin-bottom: 5px;
+  color: #8e9b87;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.topbar-title {
+  color: #eeeade;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.topbar-menu {
+  display: none;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--layout-border);
+  border-radius: 9px;
+  background: #202b22;
+  color: #d9e0d1;
+  cursor: pointer;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.topbar-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 205px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid var(--layout-border);
+  border-radius: 10px;
+  background: #1c261f;
+  color: #899587;
+  font-size: 10px;
+}
+
+.topbar-search svg {
+  flex-shrink: 0;
+}
+
+.topbar-icon {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--layout-border);
+  border-radius: 10px;
+  background: #1c261f;
+  color: #c4cdbd;
+  cursor: pointer;
+}
+
+.topbar-icon:hover {
+  background: #29372b;
+  color: white;
+}
+
+.topbar-icon i {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--layout-gold);
+}
+
+.profile-avatar {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #d8ddc9;
+  color: #293329;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* =========================================
+   MOBILE BACKDROP
+========================================= */
+
+.sidebar-backdrop {
+  display: none;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+  :root {
+    --sidebar-width: 225px;
+  }
+
+  .sidebar {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
+
+  .topbar {
+    padding: 0 22px;
+  }
+
+  .topbar-search {
+    width: 175px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+  .sidebar {
+    width: min(290px, 84vw);
+    transform: translateX(-105%);
+    transition: transform 0.25s ease;
+    box-shadow: none;
+  }
+
+  .sidebar.sidebar--open {
+    transform: translateX(0);
+    box-shadow: 15px 0 45px rgba(0, 0, 0, 0.35);
+  }
+
+  .sidebar-close {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+  }
+
+  .sidebar-backdrop.visible {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.65);
+  }
+
+  .app-main {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .topbar {
+    min-height: 70px;
+    padding: 0 16px;
+  }
+
+  .topbar-menu {
+    display: grid;
+  }
+
+  .topbar-eyebrow {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+  .topbar-title {
+    font-size: 14px;
+  }
+
+  .topbar-actions {
+    gap: 8px;
+  }
+
+  .topbar-search {
+    display: none;
+  }
+
+  .topbar-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .profile-avatar {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 380px) {
+  .topbar {
+    padding: 0 11px;
+  }
+
+  .topbar-left {
+    gap: 9px;
+  }
+
+  .topbar-actions {
+    gap: 6px;
+  }
+
+  .topbar-eyebrow {
+    font-size: 6px;
+  }
+
+  .topbar-title {
+    font-size: 13px;
+  }
+}

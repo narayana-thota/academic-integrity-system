@@ -1,0 +1,22 @@
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #eeeade;
+  background: #111712;
+
+  --bg: #111712;
+  --surface: #1a231c;
+  --surface-2: #202b22;
+  --surface-3: #263329;
+  --border: #303d32;
+
+  --text: #eeeade;
+  --muted: #9ba697;
+  --green: #91a77b;
+  --green-bright: #b1c497;
+  --gold: #d4aa63;
+  --orange: #c9805d;
+  --red: #c76c61;
+
+  --sidebar-width: 250px;
+  --radius: 16px;
+}
